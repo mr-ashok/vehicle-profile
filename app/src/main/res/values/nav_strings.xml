@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vehicle_list_fragment_label">Vehicle List</string>
+    <string name="vehicle_number_input_fragment_label">Create new vehicle profile</string>
+    <string name="vehicle_class_selection_list_fragment_label">Select Vehicle Class</string>
+    <string name="vehicle_make_selection_list_fragment_label">Select Vehicle Make</string>
+    <string name="vehicle_model_selection_list_fragment_label">Select Vehicle Model</string>
+    <string name="vehicle_fuel_selection_list_fragment_label">Select Fuel Type</string>
+    <string name="vehicle_transmission_selection_list_fragment_label">Select Vehicle Transmission</string>
+</resources>

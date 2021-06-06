@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import dev.mr_ashok.vehicle_profile.base.BaseFragment
 import dev.mr_ashok.vehicle_profile.databinding.VehicleListFragmentBinding
 
-class VehicleListFragment: BaseFragment<VehicleListFragmentBinding>() {
+class VehicleListFragment : BaseFragment<VehicleListFragmentBinding>() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

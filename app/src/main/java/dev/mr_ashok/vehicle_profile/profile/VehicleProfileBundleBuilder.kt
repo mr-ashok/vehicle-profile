@@ -9,8 +9,10 @@ private const val VEHICLE_MODEL_KEY = "model";
 private const val VEHICLE_FUEL_KEY = "fuel";
 private const val VEHICLE_TRANSMISSION_KEY = "transmission";
 
-class VehicleProfileBundleBuilder(previousBundle: Bundle?=null) {
-    private val bundle = Bundle(previousBundle)
+class VehicleProfileBundleBuilder(previousBundle: Bundle? = null) {
+    private val bundle = previousBundle ?: Bundle()
+
+    fun build() = bundle
 
     //region Setter
 
