@@ -7,4 +7,15 @@
 
     <string name="vehicle_number_label">Vehicle Number</string>
     <string name="error_loading_data">Error while loading data</string>
+    <string name="error_saving_data">Error while saving data</string>
+    <string name="error_vehicle_number_not_provided">Error - No vehicle number is provided</string>
+
+    <string name="add_new_vehicle">Register new vehicle</string>
+    <string name="insert_vehicle_confirmation">Vehicle Added</string>
+    <string name="view_vehicle_details">View vehicle details</string>
+
+    <string name="make_label">Make</string>
+    <string name="model_label">Model</string>
+    <string name="fuel_type_label">Fuel Type</string>
+    <string name="transmission_label">Transmission</string>
 </resources>

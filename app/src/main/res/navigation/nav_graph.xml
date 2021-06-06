@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_add_vehicle"
             app:destination="@id/vehicle_number_input_fragment" />
+
+        <action
+            android:id="@+id/action_view_vehicle_detail"
+            app:destination="@id/vehicle_detail_fragment" />
     </fragment>
 
     <fragment
@@ -24,58 +28,62 @@
 
         <action
             android:id="@+id/action_next"
-            app:destination="@id/vehicle_class_section_fragment" />
+            app:destination="@id/vehicle_class_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/vehicle_class_section_fragment"
+        android:id="@+id/vehicle_class_fragment"
         android:name="dev.mr_ashok.vehicle_profile.profile.VehicleClassSelectionListFragment"
         android:label="@string/vehicle_class_selection_list_fragment_label"
         tools:layout="@layout/basic_list_fragment">
 
         <action
             android:id="@+id/action_next"
-            app:destination="@id/vehicle_make_section_fragment" />
+            app:destination="@id/vehicle_make_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/vehicle_make_section_fragment"
+        android:id="@+id/vehicle_make_fragment"
         android:name="dev.mr_ashok.vehicle_profile.profile.VehicleMakeSelectionListFragment"
         android:label="@string/vehicle_make_selection_list_fragment_label"
         tools:layout="@layout/basic_list_fragment">
 
         <action
             android:id="@+id/action_next"
-            app:destination="@id/vehicle_model_section_fragment" />
+            app:destination="@id/vehicle_model_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/vehicle_model_section_fragment"
+        android:id="@+id/vehicle_model_fragment"
         android:name="dev.mr_ashok.vehicle_profile.profile.VehicleModelSelectionListFragment"
         android:label="@string/vehicle_model_selection_list_fragment_label"
         tools:layout="@layout/basic_list_fragment">
 
         <action
             android:id="@+id/action_next"
-            app:destination="@id/vehicle_fuel_section_fragment" />
+            app:destination="@id/vehicle_fuel_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/vehicle_fuel_section_fragment"
+        android:id="@+id/vehicle_fuel_fragment"
         android:name="dev.mr_ashok.vehicle_profile.profile.VehicleFuelSelectionListFragment"
         android:label="@string/vehicle_fuel_selection_list_fragment_label"
         tools:layout="@layout/basic_list_fragment">
 
         <action
             android:id="@+id/action_next"
-            app:destination="@id/vehicle_transmission_section_fragment" />
+            app:destination="@id/vehicle_transmission_fragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/vehicle_transmission_section_fragment"
+        android:id="@+id/vehicle_transmission_fragment"
         android:name="dev.mr_ashok.vehicle_profile.profile.VehicleTransmissionSelectionListFragment"
         android:label="@string/vehicle_transmission_selection_list_fragment_label"
-        tools:layout="@layout/basic_list_fragment"></fragment>
+        tools:layout="@layout/basic_list_fragment" />
 
+    <fragment
+        android:id="@+id/vehicle_detail_fragment"
+        android:name="dev.mr_ashok.vehicle_profile.VehicleDetailFragment"
+        tools:layout="@layout/vehicle_detail_fragment" />
 
 </navigation>

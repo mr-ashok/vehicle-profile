@@ -40,7 +40,7 @@ class VehicleModelSelectionListFragment : BasicListFragment() {
     override fun onDataSelected(data: String) {
         findNavController().navigate(
             R.id.action_next,
-            VehicleProfileBundleBuilder(arguments).setVehicleMake(data).build()
+            VehicleProfileBundleBuilder(arguments).setVehicleModel(data).build()
         )
     }
 }
