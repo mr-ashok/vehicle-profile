@@ -4,4 +4,9 @@
     <dimen name="size_2">16dp</dimen>
     <dimen name="size_3">24dp</dimen>
     <dimen name="size_4">32dp</dimen>
+    <dimen name="size_5">40dp</dimen>
+    <dimen name="size_6">48dp</dimen>
+    <dimen name="min_size">@dimen/size_6</dimen>
+
+    <dimen name="default_font_size">16sp</dimen>
 </resources>

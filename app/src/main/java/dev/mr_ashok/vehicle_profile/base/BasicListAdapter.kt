@@ -2,6 +2,7 @@ package dev.mr_ashok.vehicle_profile.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,9 @@ import dev.mr_ashok.vehicle_profile.databinding.BasicListItemBinding
 typealias DataSelectionCallback = (data: String) -> Unit
 
 object DiffCallback : DiffUtil.ItemCallback<String>() {
-    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+    override fun areItemsTheSame(oldItem: String, newItem: String) = oldItem == newItem
 
-    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: String, newItem: String) = oldItem == newItem
 }
 
 class BasicListViewHolder(
