@@ -9,4 +9,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="vehicle_list_fragment_label">Vehicle List</string>
+    <string name="vehicle_number_input_fragment_label">Create new vehicle profile</string>
+
+    <string name="vehicle_number_label">Vehicle Number</string>
 </resources>
