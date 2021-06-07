@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"/>
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -17,6 +17,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_plus"
-        android:contentDescription="@string/add_new_vehicle" />
+        android:contentDescription="@string/add_new_vehicle"
+        app:srcCompat="@drawable/ic_plus" />
+
+    <include
+        android:id="@+id/loading_section"
+        layout="@layout/loading_section"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_section"
+        layout="@layout/error_section"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/empty_section"
+        layout="@layout/empty_section"
+        android:visibility="gone" />
+
 </FrameLayout>

@@ -3,6 +3,7 @@ This is a copy of @layout/simple_list_item_1 provided by android.
 This copy is made to alter the attributes as per the requirement.
 -->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/text1"
     android:layout_width="match_parent"
@@ -11,4 +12,5 @@ This copy is made to alter the attributes as per the requirement.
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    tools:text="Text1" />
+    app:drawableEndCompat="@drawable/chevron_right_24dp"
+    tools:text="Text1"/>

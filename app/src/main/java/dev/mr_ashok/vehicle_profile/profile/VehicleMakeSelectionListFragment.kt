@@ -16,7 +16,17 @@ class VehicleMakeSelectionListFragment : BasicListFragment() {
         super.onViewCreated(view, savedInstanceState)
         val vehicleClass = VehicleProfileBundleBuilder(arguments).getVehicleClass()
             ?: throw RuntimeException("Vehicle class is not provided")
+        fetchData(vehicleClass)
+    }
 
+    override fun onDataSelected(data: String) {
+        findNavController().navigate(
+            R.id.action_next,
+            VehicleProfileBundleBuilder(arguments).setVehicleMake(data).build()
+        )
+    }
+
+    private fun fetchData(vehicleClass: String) {
         ViewModelProvider(this)
             .get(VehicleProfileViewModel::class.java)
             .fetchVehicleMake(vehicleClass)
@@ -29,15 +39,13 @@ class VehicleMakeSelectionListFragment : BasicListFragment() {
                 } else if (it.status == Status.SUCCESS && it.data != null) {
                     setListData(it.data)
                 } else {
-                    setupErrorView(ErrorData(requireContext().resources.getString(R.string.error_loading_data)))
+                    setupErrorView(
+                        ErrorData(
+                            requireContext().resources.getString(R.string.error_loading_data),
+                            { fetchData(vehicleClass) }
+                        )
+                    )
                 }
             })
-    }
-
-    override fun onDataSelected(data: String) {
-        findNavController().navigate(
-            R.id.action_next,
-            VehicleProfileBundleBuilder(arguments).setVehicleMake(data).build()
-        )
     }
 }

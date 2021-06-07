@@ -27,6 +27,7 @@
             android:layout_marginHorizontal="@dimen/size_2"
             android:layout_marginTop="@dimen/size_1"
             android:autofillHints="Vehicle Number"
+            android:background="@drawable/edit_text_background"
             android:inputType="textCapCharacters" />
     </LinearLayout>
 

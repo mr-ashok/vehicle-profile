@@ -9,4 +9,5 @@
     <dimen name="min_size">@dimen/size_6</dimen>
 
     <dimen name="default_font_size">16sp</dimen>
+    <dimen name="image_size">200dp</dimen>
 </resources>

@@ -47,8 +47,6 @@ class VehicleViewModel(application: Application) : AndroidViewModel(application)
             try {
                 vehicleDao.insert(vehicle)
                 liveData.postValue(Resource(Status.SUCCESS, true))
-            } catch (err: SQLiteConstraintException) {
-
             } catch (err: Exception) {
                 liveData.postValue(Resource(Status.ERROR, null, err))
             }

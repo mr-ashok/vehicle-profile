@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import dev.mr_ashok.vehicle_profile.R
 import dev.mr_ashok.vehicle_profile.base.BasicListFragment
 
-public enum class VehicleClass(val label: String, val value: String) {
+private enum class VehicleClass(val label: String, val value: String) {
     BIKE("Bike (2 wheeler)", "2w"),
     CAR("Car (4 wheeler)", "4w")
 }

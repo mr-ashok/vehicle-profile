@@ -1,6 +1,5 @@
 package dev.mr_ashok.vehicle_profile.profile
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -13,7 +12,7 @@ import dev.mr_ashok.vehicle_profile.VehicleViewModel
 import dev.mr_ashok.vehicle_profile.base.BasicListFragment
 import dev.mr_ashok.vehicle_profile.base.ErrorData
 
-public enum class VehicleTransmission {
+private enum class VehicleTransmission {
     MANUAL,
     AUTOMATIC
 }
@@ -37,16 +36,26 @@ class VehicleTransmissionSelectionListFragment : BasicListFragment() {
                     return@Observer
                 }
                 if (it.status == Status.SUCCESS && it.data == true) {
-                    Snackbar.make(
-                        requireView().rootView,
-                        R.string.insert_vehicle_confirmation,
-                        Snackbar.LENGTH_LONG
-                    ).show()
+                    val activityView =
+                        requireView().rootView.findViewById<View>(R.id.activity_root_view)
+                    if (activityView != null) {
+                        Snackbar.make(
+                            activityView,
+                            R.string.insert_vehicle_confirmation,
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                     findNavController().popBackStack(R.id.vehicle_list_fragment, false)
                 } else if (it.status == Status.LOADING) {
-                    setupLoadingView()
+                    setupLoadingView(R.string.saving)
                 } else {
-                    setupErrorView(ErrorData(requireContext().resources.getString(R.string.error_saving_data) + " ${it.error?.localizedMessage ?: ""}"))
+                    setupErrorView(
+                        ErrorData(
+                            requireContext().resources.getString(R.string.error_saving_data),
+                            null,
+                            it.error?.localizedMessage
+                        )
+                    )
                 }
             })
     }

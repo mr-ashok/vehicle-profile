@@ -49,6 +49,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vehicle_detail_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -147,5 +148,15 @@
             tools:text="Automatic" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/loading_section"
+        layout="@layout/loading_section"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_section"
+        layout="@layout/error_section"
+        android:visibility="gone" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -41,11 +41,39 @@ class VehicleDetailFragment : BaseFragment<VehicleDetailFragmentBinding>() {
 
         val vehicleNumberArgument = VehicleDetailBundleBuilder.getVehicleNumber(arguments)
         if (vehicleNumberArgument == null) {
-            this.setupErrorView(ErrorData(view.resources.getString(R.string.error_vehicle_number_not_provided)))
+            this.setupErrorView(
+                ErrorData(
+                    view.resources.getString(R.string.error_vehicle_number_not_provided),
+                    null
+                )
+            )
             return
         }
 
         viewModel = ViewModelProvider(requireActivity()).get(VehicleViewModel::class.java)
+        fetchData(vehicleNumberArgument)
+    }
+
+    private fun setupErrorView(data: ErrorData) {
+        binding?.run {
+            appBarLayout.visibility = View.GONE
+            vehicleDetailRoot.visibility = View.GONE
+            errorSection.root.visibility = View.VISIBLE
+            loadingSection.root.visibility = View.GONE
+            bindErrorViews(errorSection, data)
+        }
+    }
+
+    private fun setupLoadingView() {
+        binding?.run {
+            appBarLayout.visibility = View.GONE
+            vehicleDetailRoot.visibility = View.GONE
+            errorSection.root.visibility = View.GONE
+            loadingSection.root.visibility = View.VISIBLE
+        }
+    }
+
+    private fun fetchData(vehicleNumberArgument: String) {
         viewModel.fetchVehicle(vehicleNumberArgument).observe(viewLifecycleOwner, Observer {
             if (it == null) {
                 return@Observer
@@ -55,6 +83,11 @@ class VehicleDetailFragment : BaseFragment<VehicleDetailFragmentBinding>() {
             } else if (it.status == Status.SUCCESS && it.data != null) {
                 val data = it.data
                 binding?.run {
+                    appBarLayout.visibility = View.VISIBLE
+                    vehicleDetailRoot.visibility = View.VISIBLE
+                    errorSection.root.visibility = View.GONE
+                    loadingSection.root.visibility = View.GONE
+
                     toolbar.title = "${data.model} ${data.fuel}".uppercase(Locale.getDefault())
                     vehicleNumber.text = vehicleNumberArgument
                     makeValue.text = it.data.make
@@ -63,16 +96,14 @@ class VehicleDetailFragment : BaseFragment<VehicleDetailFragmentBinding>() {
                     transmissionValue.text = it.data.transmission
                 }
             } else {
-                setupErrorView(ErrorData(requireContext().resources.getString(R.string.error_loading_data)))
+                setupErrorView(
+                    ErrorData(
+                        requireContext().resources.getString(R.string.error_loading_data),
+                        {
+                            fetchData(vehicleNumberArgument)
+                        })
+                )
             }
         })
-    }
-
-    private fun setupErrorView(data: ErrorData) {
-        // TODO: Implement this method
-    }
-
-    private fun setupLoadingView() {
-        // TODO: Implement this method
     }
 }
