@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recycler_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"/>
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd" />
+
+    <include
+        android:id="@+id/loading_section"
+        layout="@layout/loading_section"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/error_section"
+        layout="@layout/error_section"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/empty_section"
+        layout="@layout/empty_section"
+        android:visibility="gone" />
+</FrameLayout>

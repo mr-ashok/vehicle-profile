@@ -4,11 +4,20 @@
 
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading …</string>
+    <string name="saving">Saving Data …</string>
 
     <string name="vehicle_number_label">Vehicle Number</string>
     <string name="error_loading_data">Error while loading data</string>
     <string name="error_saving_data">Error while saving data</string>
     <string name="error_vehicle_number_not_provided">Error - No vehicle number is provided</string>
+
+    <string name="error_image">Error Image Preview</string>
+    <string name="empty_image">Empty Image Preview</string>
+
+    <string name="empty_list_title">No data present</string>
+    <string name="empty_vehicle_list_subtitle">No vehicle registered yet.\nPlease click on "+" button to add vehicle profile.</string>
 
     <string name="add_new_vehicle">Register new vehicle</string>
     <string name="insert_vehicle_confirmation">Vehicle Added</string>

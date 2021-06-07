@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import dev.mr_ashok.vehicle_profile.R
 import dev.mr_ashok.vehicle_profile.base.BasicListFragment
 
-public enum class VehicleFuel(val label: String) {
+private enum class VehicleFuel(val label: String) {
     PETROL("Petrol"),
     DIESEL("Diesel"),
     CNG("CNG"),

@@ -38,10 +38,40 @@ class VehicleListFragment : BaseFragment<VehicleListFragmentBinding>() {
                 findNavController().navigate(R.id.action_add_vehicle)
             }
             vehicleDetailList.adapter = adapter
-            vehicleDetailList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            vehicleDetailList.addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
             vehicleDetailList.layoutManager = LinearLayoutManager(context)
         }
         viewModel = ViewModelProvider(requireActivity()).get(VehicleViewModel::class.java)
+        fetchData()
+    }
+
+    private fun setupErrorView(data: ErrorData) {
+        binding?.run {
+            vehicleDetailList.visibility = View.GONE
+            emptySection.root.visibility = View.GONE
+            fab.visibility = View.GONE
+            errorSection.root.visibility = View.GONE
+            loadingSection.root.visibility = View.VISIBLE
+            bindErrorViews(errorSection, data)
+        }
+    }
+
+    private fun setupLoadingView() {
+        binding?.run {
+            vehicleDetailList.visibility = View.GONE
+            emptySection.root.visibility = View.GONE
+            fab.visibility = View.GONE
+            errorSection.root.visibility = View.GONE
+            loadingSection.root.visibility = View.VISIBLE
+        }
+    }
+
+    private fun fetchData() {
         viewModel.fetchVehicleList().observe(viewLifecycleOwner, Observer {
             if (it == null) {
                 return@Observer
@@ -49,18 +79,28 @@ class VehicleListFragment : BaseFragment<VehicleListFragmentBinding>() {
             if (it.status == Status.LOADING) {
                 setupLoadingView()
             } else if (it.status == Status.SUCCESS && it.data != null) {
+                binding?.run {
+                    if (it.data.isEmpty()) {
+                        vehicleDetailList.visibility = View.GONE
+                        emptySection.root.visibility = View.VISIBLE
+                    } else {
+                        vehicleDetailList.visibility = View.VISIBLE
+                        emptySection.root.visibility = View.GONE
+                    }
+
+                    fab.visibility = View.VISIBLE
+                    errorSection.root.visibility = View.GONE
+                    loadingSection.root.visibility = View.GONE
+                }
                 adapter.submitList(it.data)
             } else {
-                setupErrorView(ErrorData(requireContext().resources.getString(R.string.error_loading_data)))
+                setupErrorView(
+                    ErrorData(
+                        requireContext().resources.getString(R.string.error_loading_data),
+                        { fetchData() }
+                    )
+                )
             }
         })
-    }
-
-    private fun setupErrorView(data: ErrorData) {
-        // TODO: Implement this method
-    }
-
-    private fun setupLoadingView() {
-        // TODO: Implement this method
     }
 }
